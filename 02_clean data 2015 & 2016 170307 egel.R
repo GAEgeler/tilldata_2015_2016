@@ -1,36 +1,30 @@
 #######################
-## Simplified data Grüental HS
+## clean till data 2015 and 2016 
 #######################
-## status 17.5.18 / egel
+## status 31.7.18 / egel
 #######################
 
 #required libraries
 library(dplyr)
 library(readr)
 library(stringr)
+library(here)
+library(purrr)
 
-dat_g_s_15=read_delim("S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/files/Verkaufsdaten Grüental Sept 2015 original.csv", delim = ',', trim_ws = T)
-dat_g_o_15=read_delim("S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/files/Verkaufsdaten Grüental Okt 2015 original.csv", delim = ',', trim_ws = T)
-dat_g_n_15=read_delim("S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/files/Verkaufsdaten Grüental Nov 2015 original.csv", delim = ',', trim_ws = T)
-dat_g_d_15=read_delim("S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/files/Verkaufsdaten Grüental Dez 2015 original.csv", delim = ',', trim_ws = T)
-
-dat_g_s_16=read_delim("S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/files/Verkaufsdaten Grüental Sept 2016 original.csv", delim = ',', trim_ws = T)
-dat_g_o_16=read_delim("S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/files/Verkaufsdaten Grüental Okt 2016 original.csv", delim = ',', trim_ws = T)
-dat_g_n_16=read_delim("S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/files/Verkaufsdaten Grüental Nov 2016 original.csv", delim = ',', trim_ws = T)
-dat_g_d_16=read_delim("S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/files/Verkaufsdaten Grüental Dez 2016 original.csv", delim = ',', trim_ws = T)
-
-
-##merge to one data.frame
-dat_g_hs <-  bind_rows(dat_g_s_15, dat_g_o_15, dat_g_n_15, dat_g_d_15,dat_g_s_16,dat_g_o_16 , dat_g_n_16, dat_g_d_16)
+######################
+# read data for grüental
+dat_g_hs <-  
+    list.files(here("clean data/"), pattern = "Grüental") %>% # list all csv with grüental in file name
+    map_df(~ read_delim(here("clean data/", .x), delim = ",")) # apply read_delim to each element of the file-list (= files) and return tibble
 
 ## replace white space with underline in names of data frame
 names(dat_g_hs)<- sub(" ","_",names(dat_g_hs))
 
 ##delete rows including total gruppe
-dat_g_hs <- dat_g_hs[-grep("Total", dat_g_hs$Artikel, ignore.case = T),]
+dat_g <- dat_g_hs[-grep("Total", dat_g_hs$Artikel, ignore.case = T),]
 
-##select and rename variables
-dat_g <- dat_g_hs %>%
+##select and rename variables and save it into a new dataframe dat_g
+dat_g <- dat_g %>%
     select(Artikel, name, Bruttobetrag, Nettobetrag, Verkaufte_Stücke, Gewicht_verkauft, Durchschnittlicher_Preis, `Tot_%Umsatz`,source,year) %>%
     dplyr::rename( article_description=name,umsatz_tot=`Tot_%Umsatz`, origin=source)
                  
@@ -49,7 +43,7 @@ possBuffetVariables <- c('Garden', 'Market') # all possible hot and cold variabl
 possFavoriteVariables <- c("Favorite", "Local 0") # all possible favorite variables
 
 ## looping through the data frame
-dat_g$date <- paste0(substr(dat_g$origin,1,5),'.',dat_g$year) # crate new date variable
+dat_g$date <- paste0(str_sub(dat_g$origin,-9,-5),'.',dat_g$year) # crate new date variable
 for(i in unique(dat_g$date)) { # loop through date variable
     dat.date <-  dat_g[dat_g$date == i,] # create data frame with ith date entry
     dat.date.kitchen <-
@@ -107,34 +101,24 @@ for(i in unique(dat_g$date)) {
 
 
 # save data frame
-write_delim(dat_g,"S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/verkaufsdaten grüental HS 180518.csv", delim = ";")
+write_delim(dat_g, path = here("augmented data/", "verkaufsdaten grüental HS 180731.csv"), delim = ";")
 
 
-#######################
-## Simplified data Vista HS
-#######################
-#######################
-dat_v_s_15=read_delim("S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/files/Verkaufsdaten Vista Sept 2015 original.csv",delim = ",")
-dat_v_o_15=read_delim("S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/files/Verkaufsdaten Vista Okt 2015 original.csv",delim = ",")
-dat_v_n_15=read_delim("S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/files/Verkaufsdaten Vista Nov 2015 original.csv",delim = ",")
-dat_v_d_15=read_delim("S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/files/Verkaufsdaten Vista Dez 2015 original.csv",delim = ",")
-
-dat_v_s_16=read_delim("S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/files/Verkaufsdaten Vista Sept 2016 original.csv",delim = ",")
-dat_v_o_16=read_delim("S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/files/Verkaufsdaten Vista Okt 2016 original.csv",delim = ",")
-dat_v_n_16=read_delim("S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/files/Verkaufsdaten Vista Nov 2016 original.csv",delim = ",")
-dat_v_d_16=read_delim("S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/files/Verkaufsdaten Vista Dez 2016 original.csv",delim = ",")
-
-##merge to one data.frame
-dat_v_hs = bind_rows(dat_v_s_15, dat_v_o_15, dat_v_n_15, dat_v_d_15,dat_v_s_16, dat_v_o_16, dat_v_n_16, dat_v_d_16)
+###################################################################################################################
+######################
+# read data for vista
+dat_v_hs <-  
+    list.files(here("clean data/"), pattern = "Vista") %>% # list all csv with grüental in file name
+    map_df(~ read_delim(here("clean data/", .x), delim = ",")) # apply read_delim to each element of the file-list (= files) and bind the single dataframes
 
 ## replace white space with underline in names of data frame
 names(dat_v_hs)<- sub(" ","_",names(dat_v_hs))
 
-##delete rows including total gruppe
-dat_v_hs <- dat_v_hs[-grep("Total", dat_v_hs$Artikel, ignore.case = T),]
+##delete rows including total gruppe and create new data frame
+dat_v <- dat_v_hs[-grep("Total", dat_v_hs$Artikel, ignore.case = T),]
 
 ##select and rename variables
-dat_v <- dat_v_hs %>%
+dat_v <- dat_v %>%
     select(Artikel, name, Bruttobetrag, Nettobetrag, Verkaufte_Stücke, Gewicht_verkauft, Durchschnittlicher_Preis, `Tot_%Umsatz`,source,year) %>%
     dplyr::rename( article_description=name,umsatz_tot=`Tot_%Umsatz`, origin=source)
 
@@ -149,7 +133,7 @@ possBuffetVariables <- c('Garden', 'Market') # all possible hot and cold variabl
 possFavoriteVariables <- c("Favorite", "Local 0") # all possible favorite variables
 
 # looping through the data frame
-dat_v$date <- paste0(substr(dat_v$origin,1,5),'.',dat_v$year)
+dat_v$date <- paste0(str_sub(dat_v$origin,-9,-5),'.',dat_v$year)
 for(i in unique(dat_v$date)) {
     dat.date <- dat_v[dat_v$date == i,]
     dat.date.kitchen <-
@@ -206,8 +190,7 @@ for(i in unique(dat_v$date)) {
 }
 
 # save data frame
-write_delim(dat_v,"S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/verkaufsdaten vista HS 180518.csv", delim = ',')
-
+write_delim(dat_v, path = here("augmented data/", "verkaufsdaten vista HS 180731.csv"), delim = ';')
 
 ###combinde data frames
 # create variable ort as shop description 
@@ -216,6 +199,8 @@ dat_v$ort <- 'vista'
 dat_hs_tot <- bind_rows(dat_g,dat_v)
 
 # save data frame
-write_delim(dat_hs_tot,"S:/pools/n/N-IUNR-nova-data/02_kassendaten/00_kassendaten 2015 & 2016/verkaufsdaten täglich HS 15-16 180518.csv", delim = ';')
+write_delim(dat_hs_tot, path = here("augmented data/", "verkaufsdaten täglich HS 15-16 180731.csv"), delim = ';')
 
-
+# did a double check with an older version (*180518.csv) it seems that 120 observerions differ from the newer version (*180731.csv)
+# however checkt couple of entries and they did not differ each from antother (dont know why the differences)
+# only articles of no interest are affected
