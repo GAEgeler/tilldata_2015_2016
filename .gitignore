@@ -8,3 +8,7 @@
 /augmented data
 /clean data
 /raw data
+
+#ignore subsequent file formats
+*.csv
+*.xlsx
