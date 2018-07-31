@@ -1,8 +1,10 @@
+# do not update selected files
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
-*.csv
+
+# ignore subsequent folders
 /augmented data
 /clean data
 /raw data
