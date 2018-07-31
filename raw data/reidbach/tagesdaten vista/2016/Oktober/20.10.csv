@@ -1,0 +1,29 @@
+Artikel Analyse,,,,,,,,,,,,,,,,,,
+,,,,,,Shops: 27907 Vista Mensa,,,,,,Gruppen: 10 Sparten SAP Küche,,,,,,
+,,,,,,Kassen: Alle,,,,,,Visibility: 1 Full visibility,,,,,,
+,,,,,,Bediener: Alle,,,,,,Gruppieren nach: Gruppe A,,,,,,
+,,,,,,Preisebenen:Alle,,,,,,Zeige Maßeinheit: Nein,,,,,,
+,,,,,,Drucke Artikel: Ja,,,,,Inkl. umsatzneutrale Artikel: Ja,,,,,,,
+,,,,,,Datumsbereich: 20.10.2016 - 20.10.2016,,,,,,,,,,,,
+,,,,,,Zeit Fenster: 11:00 - 13:59,,,,,,,,,,,,
+,,,,,,Kunde:Alle,,,,,,,,,,,,
+Gruppe,10,Sparten SAP Küche,,,,,,,,,,,,,,,,
+Artikel,,,,Bruttobetrag,Nettobetrag,,Verkaufte Stücke,Gewicht verkauft,Durchschnittlicher Preis,,,,Rabattierter Betrag,Durchschnittlicher Rabatt,Referenzbetrag,,Ref %,Tot %Umsatz
+A10000,Küche,,,156.20,156.20,,2,,78.10,,,,0.00,0.00,156.20,,100.00,8.80
+A10001,Favorite,,,960.00,960.00,,129,,7.44,,,,0.00,0.00,960.00,,100.00,54.09
+A10002,Green,,,356.00,356.00,,49,,7.27,,,,0.00,0.00,356.00,,100.00,20.06
+A10005,Menu Suppe,,,4.50,4.50,,3,,1.50,,,,0.00,0.00,4.50,,100.00,0.25
+A10006,Menu Salat,,,15.00,15.00,,10,,1.50,,,,0.00,0.00,15.00,,100.00,0.85
+A10040,Garden,,,240.60,240.60,,35,10.460,23.00,,,,0.00,0.00,240.60,,100.00,13.56
+A10063,Frucht 1.00,,,1.00,1.00,,1,,1.00,,,,0.00,0.00,1.00,,100.00,0.06
+A10072,Schichtjoghurt,,,3.00,3.00,,1,,3.00,,,,0.00,0.00,3.00,,100.00,0.17
+A10101,Ragusa-Gipfel ,,,2.40,2.40,,1,,2.40,,,,0.00,0.00,2.40,,100.00,0.14
+A10102,Mandelgipfel ,,,7.20,7.20,,3,,2.40,,,,0.00,0.00,7.20,,100.00,0.41
+A10111,Schoggi Fair,,,4.40,4.40,,2,,2.20,,,,0.00,0.00,4.40,,100.00,0.25
+A10114,Fitnessbrötli ,,,4.40,4.40,,2,,2.20,,,,0.00,0.00,4.40,,100.00,0.25
+A10200,Birchermüesli Classic,,,3.20,3.20,,1,,3.20,,,,0.00,0.00,3.20,,100.00,0.18
+A10409,Sandwich Appenzell,,,11.00,11.00,,2,,5.50,,,,0.00,0.00,11.00,,100.00,0.62
+A10425,Sandwich Italien,,,6.00,6.00,,1,,6.00,,,,0.00,0.00,6.00,,100.00,0.34
+Total Gruppe,,,,"1,774.90","1,774.90",,242,10.460,7.33,,,,0.00,0.00,"1,774.90",,,100.00
+Total,,,,"1,774.90","1,774.90",,242,10.460,7.33,,,,0.00,0.00,"1,774.90",,,
+"Mittwoch, 08 März 2017 12:01",,,Gedruckt durch 201 RM,,,,,,,Visibility: 1 Full visibility,,,,,,Seite 1 von 1,,

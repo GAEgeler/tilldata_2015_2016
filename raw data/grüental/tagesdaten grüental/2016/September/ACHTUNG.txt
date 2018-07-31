@@ -1,0 +1,6 @@
+Bemerkung (18.05.18 // egel)
+----------------------------
+
+30.09.csv: wurde noch manuell angepasst, da es Probleme beim einlesen verursacht
+-> Beispiel "10,231.10" wurde in 10231.10 umgewandelt
+-> letzte Zeile wurde noch ein Komma weggelöscht, damit der Text in dieser Zeile um eine Spalte verschoben wird

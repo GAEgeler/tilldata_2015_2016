@@ -1,0 +1,30 @@
+Artikel Analyse,,,,,,,,,,,,,,,,,,
+,,,,,,Shops: 27907 Vista Mensa,,,,,,Gruppen: 10 Sparten SAP Küche,,,,,,
+,,,,,,Kassen: Alle,,,,,,Visibility: 1 Full visibility,,,,,,
+,,,,,,Bediener: Alle,,,,,,Gruppieren nach: Gruppe A,,,,,,
+,,,,,,Preisebenen:Alle,,,,,,Zeige Maßeinheit: Nein,,,,,,
+,,,,,,Drucke Artikel: Ja,,,,,Inkl. umsatzneutrale Artikel: Ja,,,,,,,
+,,,,,,Datumsbereich: 16.10.2015 - 16.10.2015,,,,,,,,,,,,
+,,,,,,Zeit Fenster: 11:00 - 13:59,,,,,,,,,,,,
+,,,,,,Kunde:Alle,,,,,,,,,,,,
+Gruppe,10,Sparten SAP Küche,,,,,,,,,,,,,,,,
+Artikel,,,,Bruttobetrag,Nettobetrag,,Verkaufte Stücke,Gewicht verkauft,Durchschnittlicher Preis,,,,Rabattierter Betrag,Durchschnittlicher Rabatt,Referenzbetrag,,Ref %,Tot %Umsatz
+A10000,Küche,,,3.00,3.00,,1,,3.00,,,,0.00,0.00,3.00,,100.00,0.20
+A10001,Favorite,,,542.00,542.00,,75,,7.23,,,,0.00,0.00,542.00,,100.00,36.88
+A10002,Green,,,272.00,272.00,,37,,7.35,,,,0.00,0.00,272.00,,100.00,18.51
+A10006,Menu Salat,,,22.50,22.50,,15,,1.50,,,,0.00,0.00,22.50,,100.00,1.53
+A10012,Kitchen 2,,,194.00,194.00,,18,,10.78,,,,0.00,0.00,194.00,,100.00,13.20
+A10014,Kitchen 4,,,357.00,357.00,,29,,12.31,,,,0.00,0.00,357.00,,100.00,24.29
+A10040,Garden,,,40.70,40.70,,7,1.772,22.97,,,,0.00,0.00,40.70,,100.00,2.77
+A10063,Frucht 1.00,,,1.00,1.00,,1,,1.00,,,,0.00,0.00,1.00,,100.00,0.07
+A10064,Frucht 1.20,,,2.40,2.40,,2,,1.20,,,,0.00,0.00,2.40,,100.00,0.16
+A10072,Schichtjoghurt,,,3.00,3.00,,1,,3.00,,,,0.00,0.00,3.00,,100.00,0.20
+A10102,Mandelgipfel ,,,2.40,2.40,,1,,2.40,,,,0.00,0.00,2.40,,100.00,0.16
+A10136,Muffin,,,10.00,10.00,,4,,2.50,,,,0.00,0.00,10.00,,100.00,0.68
+A10143,Trockengebäck Lyner verpackt,,,2.40,2.40,,1,,2.40,,,,0.00,0.00,2.40,,100.00,0.16
+A10200,Birchermüesli Classic,,,3.20,3.20,,1,,3.20,,,,0.00,0.00,3.20,,100.00,0.22
+A10450,Sandwich Laugenkaiser,,,4.00,4.00,,1,,4.00,,,,0.00,0.00,4.00,,100.00,0.27
+A10451,Sandwich Bauette,,,10.00,10.00,,2,,5.00,,,,0.00,0.00,10.00,,100.00,0.68
+Total Gruppe,,,,"1,469.60","1,469.60",,196,1.772,7.50,,,,0.00,0.00,"1,469.60",,,100.00
+Total,,,,"1,469.60","1,469.60",,196,1.772,7.50,,,,0.00,0.00,"1,469.60",,,
+"Mittwoch, 08 März 2017 11:36",,,Gedruckt durch 201 RM,,,,,,,Visibility: 1 Full visibility,,,,,,Seite 1 von 1,,
