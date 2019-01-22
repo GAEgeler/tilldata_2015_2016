@@ -1,7 +1,7 @@
 #######################
 ## clean till data 2015 and 2016 
 #######################
-## status 31.7.18 / egel
+## status 1.12.18 / egel
 #######################
 
 #required libraries
@@ -26,7 +26,7 @@ dat_g <- dat_g_hs[-grep("Total", dat_g_hs$Artikel, ignore.case = T),]
 ##select and rename variables and save it into a new dataframe dat_g
 dat_g <- dat_g %>%
     select(Artikel, name, Bruttobetrag, Nettobetrag, Verkaufte_Stücke, Gewicht_verkauft, Durchschnittlicher_Preis, `Tot_%Umsatz`,source,year) %>%
-    dplyr::rename( article_description=name,umsatz_tot=`Tot_%Umsatz`, origin=source)
+    dplyr::rename( article_description=name,umsatz_tot_pct=`Tot_%Umsatz`, origin=source)
                  
 ##rename variable enties
 dat_g$article_description <- str_replace(dat_g$article_description, "Küche","Catering")
@@ -37,7 +37,7 @@ dat_g$article_description <- str_replace(dat_g$article_description, "Küche","Cat
 ## important, Local 0 belongs to Favorite
 # create variables for loop
 possKitchenVariables <- c(paste0('Kitchen ',0:4),paste0('Local ',1:4)) # all possible kitchen variables
-sumVariables <- c('Bruttobetrag','Nettobetrag','Verkaufte_Stücke','Gewicht_verkauft','umsatz_tot') # variables to take the sum
+sumVariables <- c('Bruttobetrag','Nettobetrag','Verkaufte_Stücke','Gewicht_verkauft','umsatz_tot_pct') # variables to take the sum
 meanVariables <- c('Durchschnittlicher_Preis') # variable to take the mean
 possBuffetVariables <- c('Garden', 'Market') # all possible hot and cold variables
 possFavoriteVariables <- c("Favorite", "Local 0") # all possible favorite variables
@@ -120,14 +120,14 @@ dat_v <- dat_v_hs[-grep("Total", dat_v_hs$Artikel, ignore.case = T),]
 ##select and rename variables
 dat_v <- dat_v %>%
     select(Artikel, name, Bruttobetrag, Nettobetrag, Verkaufte_Stücke, Gewicht_verkauft, Durchschnittlicher_Preis, `Tot_%Umsatz`,source,year) %>%
-    dplyr::rename( article_description=name,umsatz_tot=`Tot_%Umsatz`, origin=source)
+    dplyr::rename( article_description=name, umsatz_tot_pct=`Tot_%Umsatz`, origin=source)
 
 ##rename variable enties
 dat_v$article_description <- str_replace(dat_v$article_description, "Küche","Catering")
 
 ##summarize the menus
 possKitchenVariables <- c(paste0('Kitchen ',0:4),paste0('Local ',1:4)) # all possible kitchen variables
-sumVariables <- c('Bruttobetrag','Nettobetrag','Verkaufte_Stücke','Gewicht_verkauft','umsatz_tot') # variables to take the sum
+sumVariables <- c('Bruttobetrag','Nettobetrag','Verkaufte_Stücke','Gewicht_verkauft','umsatz_tot_pct') # variables to take the sum
 meanVariables <- c('Durchschnittlicher_Preis') # variable to take the mean
 possBuffetVariables <- c('Garden', 'Market') # all possible hot and cold variables
 possFavoriteVariables <- c("Favorite", "Local 0") # all possible favorite variables
