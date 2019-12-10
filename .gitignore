@@ -8,6 +8,7 @@
 /augmented data
 /clean data
 /raw data
+/archive
 
 #ignore subsequent file formats
 *.csv
